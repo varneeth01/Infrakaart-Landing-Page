@@ -149,6 +149,7 @@
   }
 }
 
+/* Hazard stripe used in navbar/CTAs */
 .hazard-stripe {
   background: repeating-linear-gradient(
     -45deg,
@@ -157,6 +158,12 @@
     #000 10px,
     #000 20px
   );
+}
+
+/* Dot grid background */
+.grid-bg {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 .card-hover {
@@ -169,6 +176,10 @@
 
 .yellow-glow {
   box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
+}
+
+.yellow-glow-text {
+  text-shadow: 0 0 40px rgba(234, 179, 8, 0.5);
 }
 
 .pulse-dot {
@@ -248,3 +259,4 @@
     inset: -1px;
   }
 }
+

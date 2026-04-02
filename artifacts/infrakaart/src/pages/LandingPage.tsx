@@ -16,10 +16,10 @@ function StatCard({ value, label, suffix = "" }: { value: string; label: string;
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="border border-white/10 bg-[#18181B] p-6 card-hover"
+      className="border border-white/10 bg-[#18181B] p-4 sm:p-6 card-hover"
     >
-      <div className="text-4xl font-black text-[#EAB308]">{value}<span className="text-2xl">{suffix}</span></div>
-      <div className="mt-1 text-sm text-[#A1A1AA] uppercase tracking-wider">{label}</div>
+      <div className="text-2xl sm:text-4xl font-black text-[#EAB308]">{value}<span className="text-lg sm:text-2xl">{suffix}</span></div>
+      <div className="mt-1 text-xs text-[#A1A1AA] uppercase tracking-wider leading-tight">{label}</div>
     </motion.div>
   );
 }
@@ -33,12 +33,12 @@ function FeatureCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.4 }}
       viewport={{ once: true }}
-      className="border border-white/10 bg-[#18181B] p-6 card-hover group"
+      className="border border-white/10 bg-[#18181B] p-5 sm:p-6 card-hover group"
     >
       <div className="w-10 h-10 bg-[#EAB308]/10 border border-[#EAB308]/30 flex items-center justify-center mb-4 group-hover:bg-[#EAB308]/20 transition-colors">
         <Icon size={20} className="text-[#EAB308]" />
       </div>
-      <h3 className="text-lg font-bold text-white mb-2">{title}</h3>
+      <h3 className="text-base sm:text-lg font-bold text-white mb-2">{title}</h3>
       <p className="text-sm text-[#A1A1AA] leading-relaxed">{desc}</p>
     </motion.div>
   );
@@ -57,13 +57,13 @@ function LiveWidget() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, x: 40 }}
-      animate={{ opacity: 1, x: 0 }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.6, duration: 0.6 }}
-      className="border border-white/20 bg-[#18181B] rounded-sm overflow-hidden w-full max-w-sm"
+      className="border border-white/20 bg-[#18181B] rounded-sm overflow-hidden w-full"
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+      <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 border-b border-white/10">
         <span className="text-xs text-[#A1A1AA] font-mono tracking-widest">CMD-CTR-01</span>
         <div className="flex items-center gap-1.5">
           <span className="w-2 h-2 bg-green-400 rounded-full pulse-dot" />
@@ -71,11 +71,11 @@ function LiveWidget() {
         </div>
       </div>
 
-      <div className="px-4 py-3 border-b border-white/10">
+      <div className="px-3 sm:px-4 py-2.5 sm:py-3 border-b border-white/10">
         <div className="text-xs text-[#A1A1AA] uppercase tracking-widest mb-1">Sector 4 - Alpha Build</div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           <span className="text-sm font-bold text-white">LIVE EXECUTION</span>
-          <span className="px-2 py-0.5 text-xs bg-[#EAB308]/20 text-[#EAB308] border border-[#EAB308]/30 uppercase font-bold">
+          <span className="px-2 py-0.5 text-xs bg-[#EAB308]/20 text-[#EAB308] border border-[#EAB308]/30 uppercase font-bold whitespace-nowrap">
             ⚡ Syncing
           </span>
         </div>
@@ -83,24 +83,24 @@ function LiveWidget() {
 
       {/* Stats */}
       <div className="grid grid-cols-3 border-b border-white/10">
-        <div className="p-3 border-r border-white/10">
+        <div className="p-2.5 sm:p-3 border-r border-white/10">
           <div className="text-xs text-[#A1A1AA] uppercase mb-1">Active Crew</div>
-          <div className="text-xl font-black text-white">{count} <span className="text-xs text-green-400">+12</span></div>
+          <div className="text-lg sm:text-xl font-black text-white">{count} <span className="text-xs text-green-400">+12</span></div>
         </div>
-        <div className="p-3 border-r border-white/10">
+        <div className="p-2.5 sm:p-3 border-r border-white/10">
           <div className="text-xs text-[#A1A1AA] uppercase mb-1">Efficiency</div>
-          <div className="text-xl font-black text-white">94% <span className="text-xs text-green-400">+2.4%</span></div>
+          <div className="text-lg sm:text-xl font-black text-white">94% <span className="text-xs text-green-400">+2.4%</span></div>
         </div>
-        <div className="p-3 bg-[#EAB308]/10">
+        <div className="p-2.5 sm:p-3 bg-[#EAB308]/10">
           <div className="text-xs text-[#EAB308] uppercase mb-1">Alerts</div>
-          <div className="text-xl font-black text-[#EAB308]">2 <span className="text-xs text-[#A1A1AA]">Review</span></div>
+          <div className="text-lg sm:text-xl font-black text-[#EAB308]">2 <span className="text-xs text-[#A1A1AA]">Review</span></div>
         </div>
       </div>
 
       {/* Chart */}
-      <div className="p-3 border-b border-white/10">
+      <div className="p-2.5 sm:p-3 border-b border-white/10">
         <div className="text-xs text-[#A1A1AA] uppercase tracking-widest mb-2">Execution Velocity</div>
-        <div className="flex items-end gap-1 h-12">
+        <div className="flex items-end gap-1 h-10 sm:h-12">
           {bars.map((h, i) => (
             <motion.div
               key={i}
@@ -114,25 +114,25 @@ function LiveWidget() {
       </div>
 
       {/* Activity */}
-      <div className="p-3">
+      <div className="p-2.5 sm:p-3">
         <div className="text-xs text-[#EAB308] uppercase tracking-widest mb-2">Live Activity Log</div>
         <div className="space-y-2">
           <div className="flex items-center gap-2 border border-white/10 px-2 py-1.5 bg-white/5">
             <Users size={12} className="text-[#A1A1AA] shrink-0" />
-            <div>
+            <div className="min-w-0">
               <div className="text-xs font-bold text-white">Shift C Deployed to Zone B</div>
               <div className="text-xs text-[#A1A1AA]">2 mins ago</div>
             </div>
           </div>
           <div className="flex items-center justify-between border border-[#EAB308]/30 px-2 py-1.5 bg-[#EAB308]/5">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 min-w-0">
               <AlertTriangle size={12} className="text-[#EAB308] shrink-0" />
-              <div>
+              <div className="min-w-0">
                 <div className="text-xs font-bold text-white">Material Delay Detected</div>
-                <div className="text-xs text-[#A1A1AA]">14 mins ago • Steel Delivery</div>
+                <div className="text-xs text-[#A1A1AA]">14 mins ago • Steel</div>
               </div>
             </div>
-            <span className="text-xs bg-[#EAB308] text-black px-1.5 py-0.5 font-bold">Resolve</span>
+            <span className="text-xs bg-[#EAB308] text-black px-1.5 py-0.5 font-bold shrink-0 ml-2">Resolve</span>
           </div>
         </div>
       </div>
@@ -145,23 +145,10 @@ const organizationSchema = {
   "@id": "https://infrakaart.com/#organization",
   "name": "Infrakaart Technologies Pvt. Ltd.",
   "url": "https://infrakaart.com",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://infrakaart.com/logo.png",
-    "width": 200,
-    "height": 60
-  },
-  "description": "Infrakaart is India's #1 AI-powered construction management platform. We help construction companies control workforce, materials, and project execution with real-time intelligence.",
+  "description": "Infrakaart is India's #1 AI-powered construction management platform.",
   "foundingDate": "2024",
   "foundingLocation": { "@type": "Place", "name": "India" },
   "areaServed": "IN",
-  "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 50 },
-  "contactPoint": [
-    { "@type": "ContactPoint", "contactType": "sales", "email": "hello@infrakaart.com", "availableLanguage": ["English", "Hindi", "Telugu"] },
-    { "@type": "ContactPoint", "contactType": "customer support", "email": "support@infrakaart.com" }
-  ],
-  "sameAs": ["https://twitter.com/infrakaart", "https://linkedin.com/company/infrakaart"],
-  "knowsAbout": ["Construction Management", "AI Project Intelligence", "Workforce Tracking", "IoT Sensors", "Construction ERP"]
 };
 
 const websiteSchema = {
@@ -170,13 +157,7 @@ const websiteSchema = {
   "url": "https://infrakaart.com",
   "name": "Infrakaart",
   "description": "India's #1 AI-powered construction management software",
-  "publisher": { "@id": "https://infrakaart.com/#organization" },
   "inLanguage": "en-IN",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": { "@type": "EntryPoint", "urlTemplate": "https://infrakaart.com/?q={search_term_string}" },
-    "query-input": "required name=search_term_string"
-  }
 };
 
 const softwareSchema = {
@@ -185,35 +166,8 @@ const softwareSchema = {
   "name": "Infrakaart Construction Management Software",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web, iOS, Android",
-  "description": "AI-powered construction management software for India. Real-time workforce tracking, predictive delay analytics, IoT sensor integration, material logistics, and cost optimization across 500+ construction sites.",
+  "description": "AI-powered construction management software for India.",
   "url": "https://infrakaart.com",
-  "offers": {
-    "@type": "Offer",
-    "price": "200000",
-    "priceCurrency": "INR",
-    "availability": "https://schema.org/InStock",
-    "priceValidUntil": "2027-12-31"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "ratingCount": "500",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "provider": { "@id": "https://infrakaart.com/#organization" },
-  "featureList": [
-    "Real-time workforce GPS tracking",
-    "AI-powered delay prediction (94% accuracy)",
-    "IoT sensor integration",
-    "Material logistics automation",
-    "Multi-site command dashboard",
-    "Compliance & regulatory reporting",
-    "Offline mobile app",
-    "Budget overrun alerts"
-  ],
-  "screenshot": "https://infrakaart.com/og-image.jpg",
-  "softwareVersion": "2.0"
 };
 
 export default function LandingPage() {
@@ -227,7 +181,7 @@ export default function LandingPage() {
         title="Infrakaart — #1 AI-Powered Construction Management Software India"
         description="Infrakaart gives construction companies real-time command over workers, materials, and projects. AI-powered delay prediction, IoT sensors, workforce tracking. 500+ sites. India's leading platform."
         canonical="/"
-        keywords="construction management software India, AI construction platform, best construction software India, infrastructure management software, project management construction India, construction ERP India, workforce tracking construction"
+        keywords="construction management software India, AI construction platform, best construction software India"
         schemas={[organizationSchema, websiteSchema, softwareSchema]}
         geoRegion="IN"
         geoPlacename="India"
@@ -238,24 +192,25 @@ export default function LandingPage() {
 
       {/* Hero */}
       <section className="relative min-h-screen flex items-center pt-16">
-        {/* 3D Scene background */}
-        <div className="absolute inset-0 top-16 opacity-50 hidden md:block">
+        {/* 3D Scene background — desktop only */}
+        <div className="absolute inset-0 top-16 opacity-50 hidden lg:block">
           <Suspense fallback={<div className="w-full h-full bg-[#0A0A0A]" />}>
             <ConstructionScene />
           </Suspense>
         </div>
 
-        {/* Mobile static gradient */}
-        <div className="absolute inset-0 top-16 md:hidden bg-gradient-to-br from-[#EAB308]/5 via-transparent to-transparent" />
+        {/* Mobile gradient fallback */}
+        <div className="absolute inset-0 top-16 lg:hidden bg-gradient-to-br from-[#EAB308]/5 via-transparent to-transparent" />
 
         {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-transparent" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left column: text content */}
             <motion.div
               style={{ opacity: heroOpacity, y: heroY }}
-              className="flex flex-col gap-6"
+              className="flex flex-col gap-5 sm:gap-6"
             >
               <div className="inline-flex items-center gap-2 border border-white/20 bg-white/5 px-3 py-1.5 self-start">
                 <span className="w-1.5 h-1.5 bg-[#EAB308]" />
@@ -264,32 +219,32 @@ export default function LandingPage() {
                 </span>
               </div>
 
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight">
                 <span className="text-white block">CONTROL</span>
                 <span className="text-white block">EVERY INCH OF</span>
                 <span className="text-[#EAB308] block yellow-glow-text">CONSTRUCTION.</span>
               </h1>
 
-              <p className="text-[#A1A1AA] text-lg max-w-lg leading-relaxed">
+              <p className="text-[#A1A1AA] text-base sm:text-lg max-w-lg leading-relaxed">
                 Infrakaart gives you real-time command over workers, materials, and project execution. Total situational awareness.
               </p>
 
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/dashboard"
-                  className="flex items-center gap-2 px-6 py-3 bg-[#EAB308] text-black font-bold uppercase tracking-wider hover:bg-[#FACC15] transition-colors yellow-glow"
+                  className="flex items-center gap-2 px-5 sm:px-6 py-3 bg-[#EAB308] text-black font-bold uppercase tracking-wider hover:bg-[#FACC15] transition-colors yellow-glow text-sm sm:text-base"
                 >
                   OPEN PLATFORM <ArrowRight size={16} />
                 </Link>
                 <Link
                   href="/dashboard"
-                  className="flex items-center gap-2 px-6 py-3 border border-white/30 text-white font-bold uppercase tracking-wider hover:border-white/60 transition-colors"
+                  className="flex items-center gap-2 px-5 sm:px-6 py-3 border border-white/30 text-white font-bold uppercase tracking-wider hover:border-white/60 transition-colors text-sm sm:text-base"
                 >
                   VIEW PLATFORM
                 </Link>
               </div>
 
-              <div className="flex items-center gap-4 pt-2">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
                 {["Real-time data", "AI-powered insights", "India's #1 platform"].map((item) => (
                   <div key={item} className="flex items-center gap-1.5">
                     <CheckCircle size={12} className="text-[#EAB308]" />
@@ -299,8 +254,11 @@ export default function LandingPage() {
               </div>
             </motion.div>
 
-            <div className="flex justify-end">
-              <LiveWidget />
+            {/* Right column: live widget */}
+            <div className="w-full lg:flex lg:justify-end">
+              <div className="w-full lg:max-w-sm">
+                <LiveWidget />
+              </div>
             </div>
           </div>
         </div>
@@ -316,7 +274,7 @@ export default function LandingPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 border-y border-white/10 bg-[#18181B]/50">
+      <section className="py-12 sm:py-16 border-y border-white/10 bg-[#18181B]/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
             <StatCard value="₹4.2T" label="India construction market" />
@@ -328,21 +286,21 @@ export default function LandingPage() {
       </section>
 
       {/* Problem */}
-      <section id="problem" className="py-24">
+      <section id="problem" className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 sm:mb-12"
           >
             <div className="text-xs text-[#EAB308] uppercase tracking-widest mb-3">The Problem</div>
-            <h2 className="text-4xl md:text-5xl font-black text-white max-w-2xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white max-w-2xl">
               Construction is still running on <span className="text-[#EAB308]">clipboards.</span>
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
               {
                 icon: AlertTriangle,
@@ -369,12 +327,12 @@ export default function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="border border-red-500/20 bg-red-500/5 p-6"
+                className="border border-red-500/20 bg-red-500/5 p-5 sm:p-6"
               >
-                <div className="text-3xl font-black text-red-400 mb-3">{stat}</div>
+                <div className="text-2xl sm:text-3xl font-black text-red-400 mb-3">{stat}</div>
                 <div className="flex items-center gap-2 mb-2">
                   <Icon size={16} className="text-red-400" />
-                  <h3 className="font-bold text-white">{title}</h3>
+                  <h3 className="font-bold text-white text-sm sm:text-base">{title}</h3>
                 </div>
                 <p className="text-sm text-[#A1A1AA] leading-relaxed">{desc}</p>
               </motion.div>
@@ -384,24 +342,24 @@ export default function LandingPage() {
       </section>
 
       {/* Solution */}
-      <section id="solution" className="py-24 bg-[#18181B]/30 border-y border-white/10">
+      <section id="solution" className="py-16 sm:py-24 bg-[#18181B]/30 border-y border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-16 text-center"
+            className="mb-10 sm:mb-16 text-center"
           >
             <div className="text-xs text-[#EAB308] uppercase tracking-widest mb-3">The Solution</div>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
               Command-grade infrastructure intelligence
             </h2>
-            <p className="text-[#A1A1AA] max-w-2xl mx-auto">
+            <p className="text-[#A1A1AA] max-w-2xl mx-auto text-sm sm:text-base">
               Infrakaart layers IoT sensors, AI prediction, and workforce tracking into one unified control system.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <FeatureCard icon={Zap} title="Real-Time Worker Tracking" desc="GPS-tagged workers with zone heatmaps. See who's where, doing what, right now." delay={0} />
             <FeatureCard icon={BarChart2} title="Predictive Cost Engine" desc="AI models that forecast overruns before they happen, not after the damage is done." delay={0.1} />
             <FeatureCard icon={Shield} title="Material Intelligence" desc="Smart inventory with predictive restocking and delivery coordination." delay={0.2} />
@@ -412,17 +370,17 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features */}
-      <section id="features" className="py-24">
+      {/* Features — platform layers */}
+      <section id="features" className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start lg:items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
               <div className="text-xs text-[#EAB308] uppercase tracking-widest mb-3">Platform Layers</div>
-              <h2 className="text-4xl font-black text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl font-black text-white mb-6">
                 Six layers of total site intelligence
               </h2>
               <div className="space-y-3">
@@ -456,7 +414,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="border border-white/10 bg-[#18181B] p-8"
+              className="border border-white/10 bg-[#18181B] p-5 sm:p-8"
             >
               <div className="text-xs text-[#EAB308] uppercase tracking-widest mb-4">Live Site Metrics</div>
               <div className="space-y-4">
@@ -468,7 +426,7 @@ export default function LandingPage() {
                 ].map((metric) => (
                   <div key={metric.label}>
                     <div className="flex justify-between text-sm mb-1">
-                      <span className="text-[#A1A1AA]">{metric.label}</span>
+                      <span className="text-[#A1A1AA] text-xs sm:text-sm">{metric.label}</span>
                       <span className="font-bold text-white">{metric.value}%</span>
                     </div>
                     <div className="h-1.5 bg-white/10 overflow-hidden">
@@ -495,7 +453,7 @@ export default function LandingPage() {
       </section>
 
       {/* Vision */}
-      <section id="vision" className="py-24 bg-[#18181B]/30 border-y border-white/10">
+      <section id="vision" className="py-16 sm:py-24 bg-[#18181B]/30 border-y border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -503,13 +461,13 @@ export default function LandingPage() {
             viewport={{ once: true }}
           >
             <div className="text-xs text-[#EAB308] uppercase tracking-widest mb-3">Vision</div>
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-6 max-w-4xl mx-auto leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 max-w-4xl mx-auto leading-tight">
               We're building the <span className="text-[#EAB308]">operating system</span> for global infrastructure.
             </h2>
-            <p className="text-[#A1A1AA] text-lg max-w-2xl mx-auto mb-12">
+            <p className="text-[#A1A1AA] text-base sm:text-lg max-w-2xl mx-auto mb-10 sm:mb-12">
               Starting with India's ₹4.2T construction market, then expanding to every building, road, and bridge being built on Earth.
             </p>
-            <div className="grid md:grid-cols-3 gap-4 text-left max-w-3xl mx-auto">
+            <div className="grid sm:grid-cols-3 gap-4 text-left max-w-3xl mx-auto">
               {[
                 { year: "2026", milestone: "Launch India • 50 sites • ₹2Cr ARR" },
                 { year: "2028", milestone: "500 sites • SEA expansion • Series A" },
@@ -533,7 +491,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24">
+      <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -541,20 +499,20 @@ export default function LandingPage() {
             viewport={{ once: true }}
           >
             <div className="hazard-stripe h-1 w-32 mx-auto mb-8" />
-            <h2 className="text-5xl md:text-6xl font-black text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4">
               Ready to take <span className="text-[#EAB308]">control?</span>
             </h2>
-            <p className="text-[#A1A1AA] mb-8 text-lg">Join 500+ construction companies already on the platform.</p>
+            <p className="text-[#A1A1AA] mb-8 text-base sm:text-lg">Join 500+ construction companies already on the platform.</p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/dashboard"
-                className="flex items-center gap-2 px-8 py-4 bg-[#EAB308] text-black font-black uppercase tracking-wider text-lg hover:bg-[#FACC15] transition-colors yellow-glow"
+                className="flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-[#EAB308] text-black font-black uppercase tracking-wider text-base sm:text-lg hover:bg-[#FACC15] transition-colors yellow-glow"
               >
                 OPEN PLATFORM <ArrowRight size={20} />
               </Link>
               <Link
                 href="/investors"
-                className="flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-lg hover:border-[#EAB308] transition-colors"
+                className="flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-base sm:text-lg hover:border-[#EAB308] transition-colors"
               >
                 INVESTOR DECK
               </Link>
@@ -565,11 +523,12 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-white/10 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <span className="font-black tracking-tight">INFRA<span className="text-[#EAB308]">KAART</span> <span className="w-1.5 h-1.5 bg-[#EAB308] inline-block align-middle" /></span>
-          <span className="text-[#A1A1AA] text-sm">© 2026 Infrakaart Technologies Pvt. Ltd. · India</span>
+          <span className="text-[#A1A1AA] text-xs sm:text-sm">© 2026 Infrakaart Technologies Pvt. Ltd. · India</span>
         </div>
       </footer>
     </div>
   );
 }
+
