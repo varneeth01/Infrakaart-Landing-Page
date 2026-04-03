@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Disallow private/authenticated pages
+Disallow: /dashboard
+Disallow: /dashboard/
+Disallow: /login
+Disallow: /login/
+
+# Crawl-delay (in seconds) for polite crawling
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://infrakaart.com/sitemap.xml

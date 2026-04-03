@@ -523,9 +523,27 @@ export default function LandingPage() {
 
       {/* Footer */}
       <footer className="border-t border-white/10 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <span className="font-black tracking-tight">INFRA<span className="text-[#EAB308]">KAART</span> <span className="w-1.5 h-1.5 bg-[#EAB308] inline-block align-middle" /></span>
-          <span className="text-[#A1A1AA] text-xs sm:text-sm">© 2026 Infrakaart Technologies Pvt. Ltd. · India</span>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left mb-4">
+            <span className="font-black tracking-tight">INFRA<span className="text-[#EAB308]">KAART</span> <span className="w-1.5 h-1.5 bg-[#EAB308] inline-block align-middle" /></span>
+            <span className="text-[#A1A1AA] text-xs sm:text-sm">© 2026 Infrakaart Technologies Pvt. Ltd. · India</span>
+          </div>
+          <div className="border-t border-white/5 pt-4 flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2">
+            {[
+              { href: "/about", label: "About" },
+              { href: "/blog", label: "Blog" },
+              { href: "/investors", label: "Investors" },
+              { href: "/construction-management-software", label: "Software" },
+              { href: "/workforce-tracking-construction", label: "Workforce" },
+              { href: "/sitemap", label: "Sitemap" },
+            ].map(({ href, label }) => (
+              <Link key={href} href={href} className="text-xs text-[#A1A1AA] hover:text-[#EAB308] transition-colors">
+                {label}
+              </Link>
+            ))}
+            <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="text-xs text-[#A1A1AA] hover:text-[#EAB308] transition-colors">XML Sitemap</a>
+            <a href="/robots.txt" target="_blank" rel="noopener noreferrer" className="text-xs text-[#A1A1AA] hover:text-[#EAB308] transition-colors">robots.txt</a>
+          </div>
         </div>
       </footer>
     </div>

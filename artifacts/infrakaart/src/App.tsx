@@ -14,6 +14,7 @@ const WorkforcePage = lazy(() => import("@/pages/WorkforcePage"));
 const BlogPage = lazy(() => import("@/pages/BlogPage"));
 const BlogArticlePage = lazy(() => import("@/pages/BlogArticlePage"));
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
+const SitemapPage = lazy(() => import("@/pages/SitemapPage"));
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,8 @@ function Router() {
         <Route path="/construction-software-visakhapatnam" component={LocationPage} />
         <Route path="/construction-software-pune" component={LocationPage} />
         <Route path="/construction-software-chennai" component={LocationPage} />
+
+        <Route path="/sitemap" component={SitemapPage} />
 
         <Route component={NotFound} />
       </Switch>
